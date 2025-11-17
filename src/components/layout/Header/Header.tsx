@@ -1,44 +1,40 @@
+import Image from "next/image";
+
 interface HeaderProps {
-  logoText?: string;
-  isLoggedIn?: boolean;
-  userName?: string;
+  logoImage?: string;
+  logoAlt?: string;
 }
 
 export const Header = ({
-  logoText = "Makers",
-  isLoggedIn = false,
-  userName,
+  logoImage = "/logo_full_black.svg",
+  logoAlt = "APPTIVE",
 }: HeaderProps) => {
   return (
-    <header className="flex items-center justify-between px-6 py-4 bg-white shadow-md">
-      <div className="text-2xl font-bold">{logoText}</div>
-
-      <nav className="flex items-center gap-6">
-        <a href="/" className="hover:text-blue-600">
-          홈
-        </a>
-        <a href="/about" className="hover:text-blue-600">
-          소개
-        </a>
-        <a href="/projects" className="hover:text-blue-600">
-          프로젝트
-        </a>
-      </nav>
-
-      <div>
-        {isLoggedIn ? (
-          <div className="flex items-center gap-4">
-            <span>{userName}</span>
-            <button className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">
-              로그아웃
-            </button>
-          </div>
-        ) : (
-          <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-            로그인
-          </button>
-        )}
+    <header className="flex items-center justify-between px-50 py-4 bg-[#282A2E]">
+      <div className="text-2xl font-bold">
+        <Image src={logoImage} alt={logoAlt} width={180} height={40} priority />
       </div>
+
+      <nav className="flex items-center gap-9">
+        <a
+          href="/about"
+          className="text-sm text-[#ADB0B2] hover:text-white transition-all duration-200 "
+        >
+          About
+        </a>
+        <a
+          href="/project"
+          className="text-sm text-[#ADB0B2] hover:text-white transition-all duration-200 "
+        >
+          Project
+        </a>
+        <button className="relative group rounded-3xl px-6 py-2 overflow-hidden text-white text-md">
+          <div className="absolute inset-0 rounded-3xl p-[2px] border animate-border-rotate group-hover:bg-[conic-gradient(from_var(--border-angle),##FF7900,transparent_360deg)]"></div>
+          <div className="absolute inset-[2px] rounded-3xl bg-[#282A2E]"></div>
+
+          <span className="relative z-10">24기 지원하기</span>
+        </button>
+      </nav>
     </header>
   );
 };

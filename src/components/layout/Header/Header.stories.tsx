@@ -13,17 +13,8 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const LoggedOut: Story = {
+export const Default: Story = {
   args: {
-    logoText: "Makers",
-    isLoggedIn: false,
-  },
-};
-
-export const LoggedIn: Story = {
-  args: {
-    logoText: "Makers",
-    isLoggedIn: true,
-    userName: "홍길동",
+    logoAlt: "Makers",
   },
 };
