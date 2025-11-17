@@ -56,19 +56,19 @@ export default function Footer() {
 
   return (
     <footer className="text-white bg-footer">
-      <div className="container mx-auto px-4 py-12">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-stretch gap-8">
+      <div className="container mx-auto px-4 py-8 md:py-12">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-stretch gap-6 md:gap-8">
           {/* 왼쪽: 로고 및 정보 */}
-          <div className="flex flex-col gap-3 items-start">
+          <div className="flex flex-col gap-2 md:gap-3 items-start w-full md:w-auto">
             <Image
               src={apptiveLogo}
               alt="APPTIVE Logo"
               width={237}
               height={54}
-              className="h-9 w-auto"
+              className="h-6 md:h-9 w-auto"
             />
-            <h2 className="text-5xl font-bold">APPTIVE</h2>
-            <p className="text-white text-m font-medium">
+            <h2 className="text-3xl md:text-5xl font-bold">APPTIVE</h2>
+            <p className="text-white text-sm md:text-base font-medium">
               부산대학교 IT 프로젝트 동아리
             </p>
             <p className="text-white text-xs font-medium">
@@ -77,14 +77,14 @@ export default function Footer() {
           </div>
 
           {/* 오른쪽: Go to top 및 소셜 미디어 */}
-          <div className="flex flex-col items-end justify-between self-stretch">
+          <div className="flex flex-col items-start md:items-end justify-between self-stretch w-full md:w-auto">
             <button
               onClick={scrollToTop}
-              className="text-gray-300 hover:text-white transition-colors text-sm"
+              className="text-gray-300 hover:text-white transition-colors text-sm mb-4 md:mb-0"
             >
               Go to top ↑
             </button>
-            <div className="flex gap-4">
+            <div className="flex gap-3 md:gap-4">
               {socialLinks.map((link) => (
                 <a
                   key={link.name}
