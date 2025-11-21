@@ -1,16 +1,42 @@
+/* src/styles/globals.css */
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* APPTIVE Colors */
+  --apptive-primary: #ff7900;
+  --apptive-primary-hover: #ff9933;
+  --apptive-dark: #282a2e;
+
+  --apptive-gray: #eaedf0;
+  --apptive-text-dark-gray: #71787f;
+  --apptive-text-gray: #adb0b2;
 }
 
 /* stylelint-disable-next-line at-rule-no-unknown */
 @theme inline {
+  /* Base */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-pretendard);
-  --color-footer: #282a2e;
+
+  /* Brand */
+  --color-primary: var(--apptive-primary);
+  --color-primary-hover: var(--apptive-primary-hover);
+
+  /* Background */
+  --color-bg-dark: var(--apptive-dark);
+  --color-bg-gray: var(--apptive-gray);
+
+  /* Text */
+  --color-text-primary: var(--apptive-dark);
+  --color-text-secondary: var(--apptive-text-gray);
+  --color-text-gray-dark: var(--apptive-text-dark-gray);
+
+  /* Other */
+  --color-footer: var(--apptive-dark);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +49,9 @@
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+html,
+body {
+  overscroll-behavior: none;
 }

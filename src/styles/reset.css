@@ -35,7 +35,6 @@ ol {
 /* 링크 기본 스타일 제거 */
 a {
   text-decoration: none;
-  color: inherit;
 }
 
 /* 이미지, 비디오가 부모 요소 안에서 벗어나지 않도록 */
