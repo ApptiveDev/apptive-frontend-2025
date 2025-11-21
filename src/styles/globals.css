@@ -3,6 +3,12 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  --apptive-primary: #ff7900; /* 메인 오렌지 */
+  --apptive-dark: #282a2e; /* 다크 배경 */
+  --apptive-gray: #eaedf0; /* 밝은 회색 배경 */
+  --apptive-text-gray: #adb0b2; /* 텍스트 회색 */
+  --apptive-text-black: #282a2e; /* 텍스트 블랙 */
 }
 
 /* stylelint-disable-next-line at-rule-no-unknown */
@@ -23,4 +29,10 @@
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+html,
+body {
+  /*오버스크롤 방지*/
+  overscroll-behavior: none;
 }
