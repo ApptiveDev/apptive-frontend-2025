@@ -1,22 +1,39 @@
+/* src/styles/globals.css */
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 
-  --apptive-primary: #ff7900; /* 메인 오렌지 */
-  --apptive-dark: #282a2e; /* 다크 배경 */
-  --apptive-gray: #eaedf0; /* 밝은 회색 배경 */
-  --apptive-text-gray: #adb0b2; /* 텍스트 회색 */
-  --apptive-text-black: #282a2e; /* 텍스트 블랙 */
+  /* APPTIVE Colors */
+  --apptive-primary: #ff7900;
+  --apptive-primary-hover: #ff9933;
+  --apptive-dark: #282a2e;
+  --apptive-gray: #eaedf0;
+  --apptive-text-gray: #adb0b2;
 }
 
 /* stylelint-disable-next-line at-rule-no-unknown */
 @theme inline {
+  /* Base */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-pretendard);
-  --color-footer: #282a2e;
+
+  /* Brand */
+  --color-primary: var(--apptive-primary);
+  --color-primary-hover: var(--apptive-primary-hover);
+
+  /* Background */
+  --color-bg-dark: var(--apptive-dark);
+  --color-bg-gray: var(--apptive-gray);
+
+  /* Text */
+  --color-text-primary: var(--apptive-dark);
+  --color-text-secondary: var(--apptive-text-gray);
+
+  /* Other */
+  --color-footer: var(--apptive-dark);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -33,6 +50,5 @@ body {
 
 html,
 body {
-  /*오버스크롤 방지*/
   overscroll-behavior: none;
 }
