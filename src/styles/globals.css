@@ -9,7 +9,9 @@
   --apptive-primary: #ff7900;
   --apptive-primary-hover: #ff9933;
   --apptive-dark: #282a2e;
+
   --apptive-gray: #eaedf0;
+  --apptive-text-dark-gray: #71787f;
   --apptive-text-gray: #adb0b2;
 }
 
@@ -31,6 +33,7 @@
   /* Text */
   --color-text-primary: var(--apptive-dark);
   --color-text-secondary: var(--apptive-text-gray);
+  --color-text-gray-dark: var(--apptive-text-dark-gray);
 
   /* Other */
   --color-footer: var(--apptive-dark);
