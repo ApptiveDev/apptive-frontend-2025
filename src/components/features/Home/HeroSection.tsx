@@ -1,3 +1,5 @@
+"use client";
+
 export const HeroSection = () => {
   return (
     <section className="min-h-screen bg-bg-dark flex items-center justify-center">
