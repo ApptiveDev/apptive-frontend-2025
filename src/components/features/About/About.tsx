@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/Header/Header";
 import { AboutHeroSection } from "@/components/features/About/AboutHeroSection";
 import { AboutActivitySection } from "@/components/features/About/AboutActivitySection";
+import { AboutCurriculumSection } from "@/components/features/About/AboutCurriculumSection";
 
 export const About = () => {
   return (
@@ -9,6 +10,7 @@ export const About = () => {
       <main>
         <AboutHeroSection />
         <AboutActivitySection />
+        <AboutCurriculumSection />
       </main>
     </>
   );
