@@ -2,17 +2,30 @@
 @import "tailwindcss";
 
 :root {
+  /* Base */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f1012;
 
-  /* APPTIVE Colors */
-  --apptive-primary: #ff7900;
-  --apptive-primary-hover: #ff9933;
-  --apptive-dark: #282a2e;
+  /* Brand */
+  --brand-primary: #ff7900;
+  --brand-primary-hover: #ff9933;
+  --brand-dark: #282a2e;
 
-  --apptive-gray: #eaedf0;
-  --apptive-text-dark-gray: #71787f;
-  --apptive-text-gray: #adb0b2;
+  /* Text */
+  --text-primary: #0f1012;
+  --text-secondary: #71787f;
+  --text-tertiary: #adb0b2;
+  --text-disabled: #d9dbdc;
+
+  /* Background */
+  --bg-primary: #ffffff;
+  --bg-secondary: #eaedf0;
+  --bg-dark: #282a2e;
+
+  /* Border */
+  --border-light: #eaedf0;
+  --border-default: #d9dbdc;
+  --border-dark: #adb0b2;
 }
 
 /* stylelint-disable-next-line at-rule-no-unknown */
@@ -23,26 +36,43 @@
   --font-sans: var(--font-pretendard);
 
   /* Brand */
-  --color-primary: var(--apptive-primary);
-  --color-primary-hover: var(--apptive-primary-hover);
+  --color-primary: var(--brand-primary);
+  --color-primary-hover: var(--brand-primary-hover);
 
   /* Background */
-  --color-bg-dark: var(--apptive-dark);
-  --color-bg-gray: var(--apptive-gray);
+  --color-bg-dark: var(--bg-dark);
+  --color-bg-gray: var(--bg-secondary);
 
   /* Text */
-  --color-text-primary: var(--apptive-dark);
-  --color-text-secondary: var(--apptive-text-gray);
-  --color-text-gray-dark: var(--apptive-text-dark-gray);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-tertiary);
+  --color-text-gray-dark: var(--text-secondary);
+  --color-text-gray-light: var(--text-disabled);
 
-  /* Other */
-  --color-footer: var(--apptive-dark);
+  /* Footer */
+  --color-footer: var(--bg-dark);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #ffffff;
+
+    --brand-primary: #ff9933;
+    --brand-primary-hover: #ffad5c;
+
+    --text-primary: #ffffff;
+    --text-secondary: #adb0b2;
+    --text-tertiary: #71787f;
+    --text-disabled: #585d63;
+
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #282a2e;
+    --bg-dark: #0d0d0e;
+
+    --border-light: #26282b;
+    --border-default: #202224;
+    --border-dark: #71787f;
   }
 }
 

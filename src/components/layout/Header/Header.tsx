@@ -9,33 +9,30 @@ interface HeaderProps {
 const HEADER_VARIANTS = {
   dark: {
     background: "bg-bg-dark",
-    logo: "/logo_full_black.svg",
+    logo: "/logo/logo_full_black.svg",
     logoAlt: "APPTIVE",
     linkDefault: "text-text-secondary",
     linkHover: "hover:text-white",
     buttonText: "text-white",
     buttonBorderGradient: "#FF7900",
-    //buttonBorderGradientHover: "#fff",
   },
   light: {
     background: "bg-white",
-    logo: "/logo_full_black.svg",
+    logo: "/logo/logo_full_black.svg",
     logoAlt: "APPTIVE",
     linkDefault: "text-text-primary",
     linkHover: "hover:text-text-secondary",
     buttonText: "text-text-primary",
     buttonBorderGradient: "text-text-primary",
-    //buttonBorderGradientHover: "#000",
   },
   gray: {
     background: "bg-bg-gray",
-    logo: "/logo_full_black.svg",
+    logo: "/logo/logo_full_black.svg",
     logoAlt: "APPTIVE",
     linkDefault: "text-text-primary",
     linkHover: "hover:text-text-secondary",
     buttonText: "text-text-primary",
     buttonBorderGradient: "text-text-primary",
-    //buttonBorderGradientHover: "#FF7900",
   },
 } as const;
 
