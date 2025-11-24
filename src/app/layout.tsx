@@ -26,13 +26,24 @@ const pretendard = localFont({
   display: "swap",
 });
 
+const suit = localFont({
+  src: [
+    {
+      path: "../assets/fonts/pretendard/SUIT-ExtraBold.woff2",
+      weight: "800",
+    },
+  ],
+  variable: "--font-suit",
+  display: "swap",
+});
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" className={pretendard.variable}>
+    <html lang="ko" className={`${pretendard.variable} ${suit.variable}`}>
       <body className={pretendard.className}>
         {children}
         <Footer />

@@ -6,7 +6,6 @@ import instagramIcon from "@/assets/icons/instagram.svg";
 import githubIcon from "@/assets/icons/github.svg";
 import kakaotalkIcon from "@/assets/icons/kakaotalk.svg";
 import notionIcon from "@/assets/icons/notion.svg";
-import apptiveLogo from "@/assets/icons/logo_full_with_black_bubble_s.svg";
 
 export default function Footer() {
   const [isVisible, setIsVisible] = useState(false);
@@ -61,7 +60,7 @@ export default function Footer() {
           {/* 왼쪽: 로고 및 정보 */}
           <div className="flex flex-col gap-2 md:gap-3 items-start w-full md:w-auto">
             <Image
-              src={apptiveLogo}
+              src="/logo/logo_full_black_small.svg"
               alt="APPTIVE Logo"
               width={237}
               height={54}
