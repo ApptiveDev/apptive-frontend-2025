@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useChangeTitleColor } from "@/hooks/useChangeTitleColor";
+import { useScrollSnapSection } from "@/hooks/useScrollSnap";
 
 type ActivityCategory = "Study" | "Seminar" | "Ideaton" | "Demo Day";
 
@@ -21,16 +22,28 @@ const activities: ActivityData[] = [
 export const ActivitySection = () => {
   const [selectedActivity, setSelectedActivity] =
     useState<ActivityCategory>("Study");
-  const { ref, isInView } = useChangeTitleColor({
-    threshold: 0.6,
+  const { ref: colorRef, isInView } = useChangeTitleColor({
+    threshold: 0.8,
     triggerOnce: false,
   });
+  const { sectionRef: snapRef } = useScrollSnapSection("start");
+
+  // 두 ref를 하나로 합치기
+  const combineRefs = (element: HTMLElement | null) => {
+    if (element) {
+      (colorRef as React.MutableRefObject<HTMLElement | null>).current =
+        element;
+      (snapRef as React.MutableRefObject<HTMLElement | null>).current = element;
+    }
+  };
+
   const currentActivity = activities.find(
     (activity) => activity.title === selectedActivity
   );
+
   return (
     <section
-      ref={ref as React.RefObject<HTMLElement>}
+      ref={combineRefs}
       className="min-h-screen flex items-center justify-center"
     >
       <div className="w-full max-w-4xl mx-auto px-4">
