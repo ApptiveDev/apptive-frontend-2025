@@ -38,6 +38,7 @@
   /* Brand */
   --color-primary: var(--brand-primary);
   --color-primary-hover: var(--brand-primary-hover);
+  --color-brand-dark: var(--brand-dark);
 
   /* Background */
   --color-bg-dark: var(--bg-dark);
@@ -58,7 +59,7 @@
     --background: #0a0a0a;
     --foreground: #ffffff;
 
-    --brand-primary: #ff9933;
+    --brand-primary: #ff9700;
     --brand-primary-hover: #ffad5c;
 
     --text-primary: #ffffff;

@@ -24,10 +24,13 @@ export default function Footer() {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    const mainElement = document.querySelector("main");
+    if (mainElement) {
+      mainElement.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
   };
 
   const socialLinks = [
@@ -54,7 +57,10 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="text-white bg-footer">
+    <footer
+      className="text-white bg-footer"
+      style={{ scrollSnapAlign: "none" }}
+    >
       <div className="container mx-auto px-4 py-8 md:py-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-stretch gap-6 md:gap-8">
           {/* 왼쪽: 로고 및 정보 */}

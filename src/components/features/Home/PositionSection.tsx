@@ -1,3 +1,7 @@
+"use client";
+
+import { useChangeTitleColor } from "@/hooks/useChangeTitleColor";
+import { useScrollSnapSection } from "@/hooks/useScrollSnap";
 import Card from "@/components/features/Home/components/Card";
 
 const positions = [
@@ -34,11 +38,37 @@ const positions = [
 ];
 
 export const PositionSection = () => {
+  const { ref: colorRef, isInView } = useChangeTitleColor({
+    threshold: 0.7,
+    triggerOnce: false,
+  });
+  const { sectionRef: snapRef } = useScrollSnapSection("start");
+
+  const combineRefs = (element: HTMLElement | null) => {
+    if (element) {
+      (colorRef as React.MutableRefObject<HTMLElement | null>).current =
+        element;
+      (snapRef as React.MutableRefObject<HTMLElement | null>).current = element;
+    }
+  };
+
   return (
-    <section className="w-full max-w-4xl mx-auto space-y-2 py-7 px-2 mb-30">
-      {positions.map((p) => (
-        <Card key={p.title} title={p.title} description={p.description} />
-      ))}
+    <section
+      ref={combineRefs}
+      className="w-full max-w-4xl mx-auto py-32 px-2 flex items-center"
+    >
+      <div className="w-full space-y-2">
+        <div
+          className={`mb-5 text-md font-semibold transition-colors duration-700 ${
+            isInView ? "text-primary" : "text-[#9FA0AB]"
+          }`}
+        >
+          POSITION
+        </div>
+        {positions.map((p) => (
+          <Card key={p.title} title={p.title} description={p.description} />
+        ))}
+      </div>
     </section>
   );
 };
