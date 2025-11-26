@@ -24,10 +24,13 @@ export default function Footer() {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    const mainElement = document.querySelector("main");
+    if (mainElement) {
+      mainElement.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
   };
 
   const socialLinks = [
