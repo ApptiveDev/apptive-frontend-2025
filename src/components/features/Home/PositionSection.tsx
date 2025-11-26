@@ -63,7 +63,7 @@ export const PositionSection = () => {
             isInView ? "text-primary" : "text-[#9FA0AB]"
           }`}
         >
-          Position
+          POSITION
         </div>
         {positions.map((p) => (
           <Card key={p.title} title={p.title} description={p.description} />
