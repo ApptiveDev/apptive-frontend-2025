@@ -21,6 +21,10 @@ export const useChangeTitleColor = ({
     const observer = new IntersectionObserver(
       ([entry]) => {
         const inView = entry.isIntersecting;
+        if (triggerOnce && isInView) {
+          return;
+        }
+
         setIsInView(inView);
 
         if (inView && triggerOnce) {
@@ -38,7 +42,7 @@ export const useChangeTitleColor = ({
     return () => {
       observer.disconnect();
     };
-  }, [threshold, rootMargin, triggerOnce]);
+  }, [threshold, rootMargin, triggerOnce, isInView]);
 
   return { ref, isInView };
 };
