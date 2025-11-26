@@ -85,3 +85,28 @@ html,
 body {
   overscroll-behavior: none;
 }
+
+/* 커스텀 스크롤바 스타일 */
+/* Chrome, Safari, Edge에서 스크롤바 전체 영역 선택 */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 1px;
+}
+/* 스크롤바 배경 선택 */
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--text-tertiary);
+  border-radius: 3px;
+}
+/* 스크롤바 호버 시 */
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Firefox용 스크롤바 */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-tertiary) transparent;
+}

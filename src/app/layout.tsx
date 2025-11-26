@@ -29,6 +29,22 @@ const pretendard = localFont({
 const suit = localFont({
   src: [
     {
+      path: "../assets/fonts/pretendard/SUIT-ExtraLight.woff2",
+      weight: "200",
+    },
+    {
+      path: "../assets/fonts/pretendard/SUIT-Light.woff2",
+      weight: "300",
+    },
+    {
+      path: "../assets/fonts/pretendard/SUIT-Regular.woff2",
+      weight: "400",
+    },
+    {
+      path: "../assets/fonts/pretendard/SUIT-Bold.woff2",
+      weight: "700",
+    },
+    {
       path: "../assets/fonts/pretendard/SUIT-ExtraBold.woff2",
       weight: "800",
     },
