@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { useChangeTitleColor } from "@/hooks/useChangeTitleColor";
 
 type ActivityCategory = "Study" | "Seminar" | "Ideaton" | "Demo Day";
 
@@ -20,12 +21,26 @@ const activities: ActivityData[] = [
 export const ActivitySection = () => {
   const [selectedActivity, setSelectedActivity] =
     useState<ActivityCategory>("Study");
+  const { ref, isInView } = useChangeTitleColor({
+    threshold: 0.6,
+    triggerOnce: false,
+  });
   const currentActivity = activities.find(
     (activity) => activity.title === selectedActivity
   );
   return (
-    <section className="min-h-screen flex items-center justify-center">
+    <section
+      ref={ref as React.RefObject<HTMLElement>}
+      className="min-h-screen flex items-center justify-center"
+    >
       <div className="w-full max-w-4xl mx-auto px-4">
+        <div
+          className={`mb-3 text-md font-semibold transition-colors duration-500 ${
+            isInView ? "text-primary" : "text-[#9FA0AB]"
+          }`}
+        >
+          Activity
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-10 gap-6 md:gap-8 items-center md:items-start">
           {/* 왼쪽: 이미지*/}
           <div className="relative w-full aspect-[16/9] rounded-lg overflow-hidden md:col-span-8">
