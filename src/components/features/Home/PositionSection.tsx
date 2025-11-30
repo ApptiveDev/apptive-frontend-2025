@@ -59,7 +59,7 @@ export const PositionSection = () => {
     >
       <div className="w-full space-y-2">
         <div
-          className={`ml-1 mb-5 text-md font-semibold transition-colors duration-700 ${
+          className={`ml-1 mb-5 text-sm md:text-base font-semibold transition-colors duration-700 ${
             isInView ? "text-primary" : "text-[#9FA0AB]"
           }`}
         >

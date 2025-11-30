@@ -49,7 +49,7 @@ export const ActivitySection = () => {
       <div className="w-full max-w-4xl mx-auto px-4">
         <div className="flex flex-row justify-between">
           <div
-            className={`ml-1 mb-3 text-md font-semibold transition-colors duration-500 ${
+            className={`ml-1 mb-3 text-sm md:text-base font-semibold transition-colors duration-500 ${
               isInView ? "text-primary" : "text-[#9FA0AB]"
             }`}
           >
