@@ -53,6 +53,7 @@ export const IntroductionSection = () => {
     <>
       <section
         ref={combineSection1Refs}
+        header-variant-by-section="gray"
         className="min-h-screen bg-bg-gray flex items-center justify-center"
       >
         <div className="container mx-auto px-4">

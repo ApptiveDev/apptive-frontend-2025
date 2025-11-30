@@ -43,12 +43,13 @@ export const ActivitySection = () => {
   return (
     <section
       ref={combineRefs}
+      header-variant-by-section="light"
       className="min-h-screen flex items-center justify-center"
     >
       <div className="w-full max-w-4xl mx-auto px-4">
         <div className="flex flex-row justify-between">
           <div
-            className={`mb-3 text-md font-semibold transition-colors duration-500 ${
+            className={`ml-1 mb-3 text-md font-semibold transition-colors duration-500 ${
               isInView ? "text-primary" : "text-[#9FA0AB]"
             }`}
           >
@@ -84,13 +85,13 @@ export const ActivitySection = () => {
                 className={`w-fit pl-2 pb-3 text-left transition-all duration-200 cursor-pointer ${
                   selectedActivity === activity.title
                     ? "text-foreground"
-                    : "text-text-gray-light hover:text-foreground"
+                    : "text-text-disabled hover:text-foreground"
                 }`}
               >
                 {activity.title}
               </button>
             ))}
-            <button className="w-fit pl-2 pb-3 text-left !text-xl transition-all duration-200 cursor-pointer text-text-gray-light hover:text-foreground hover:border-foreground mt-2">
+            <button className="w-fit pl-2 pb-3 text-left !text-xl transition-all duration-200 cursor-pointer text-text-disabled hover:text-foreground hover:border-foreground mt-2">
               more
             </button>
           </div>
@@ -106,7 +107,7 @@ export const ActivitySection = () => {
                 className={`flex-shrink-0 pl-2 pb-3 whitespace-nowrap transition-all duration-200 cursor-pointer ${
                   selectedActivity === activity.title
                     ? "text-foreground"
-                    : "text-text-gray-light hover:text-foreground"
+                    : "text-text-disabled hover:text-foreground"
                 }`}
               >
                 {activity.title}

@@ -44,11 +44,11 @@
   --color-bg-dark: var(--bg-dark);
   --color-bg-gray: var(--bg-secondary);
 
-  /* Text */
+  /* Text (개선된 매핑) */
   --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-tertiary);
-  --color-text-gray-dark: var(--text-secondary);
-  --color-text-gray-light: var(--text-disabled);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-disabled: var(--text-disabled);
 
   /* Footer */
   --color-footer: var(--bg-dark);
@@ -88,11 +88,10 @@ body {
 }
 
 /* 커스텀 스크롤바 스타일 */
-/* Chrome, Safari, Edge에서 스크롤바 전체 영역 선택 */
 .custom-scrollbar::-webkit-scrollbar {
   width: 1px;
 }
-/* 스크롤바 배경 선택 */
+
 .custom-scrollbar::-webkit-scrollbar-track {
   background: transparent;
 }
@@ -101,12 +100,12 @@ body {
   background: var(--text-tertiary);
   border-radius: 3px;
 }
-/* 스크롤바 호버 시 */
+
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: var(--text-secondary);
 }
 
-/* Firefox용 스크롤바 */
+/* Firefox */
 .custom-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: var(--text-tertiary) transparent;

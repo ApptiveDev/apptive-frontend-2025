@@ -1,15 +1,16 @@
 "use client";
 
+import {
+  useScrollSnapContainer,
+  useScrollSnapSection,
+} from "@/hooks/useScrollSnap";
+import { useChangeHeaderColor } from "@/hooks/useChangeHeaderColor";
 import { Header } from "@/components/layout/Header/Header";
 import { HeroSection } from "@/components/features/Home/HeroSection";
 import { IntroductionSection } from "@/components/features/Home/IntroductionSection";
 import { ActivitySection } from "@/components/features/Home/ActivitySection";
 import { PositionSection } from "@/components/features/Home/PositionSection";
 import Footer from "@/components/Footer";
-import {
-  useScrollSnapContainer,
-  useScrollSnapSection,
-} from "@/hooks/useScrollSnap";
 
 export const Home = () => {
   const { containerRef } = useScrollSnapContainer({
@@ -18,9 +19,11 @@ export const Home = () => {
     smooth: true,
   });
 
+  const headerVariant = useChangeHeaderColor();
+
   return (
     <>
-      <Header variant="dark" />
+      <Header variant={headerVariant} />
       <main
         ref={containerRef as React.RefObject<HTMLElement>}
         className="h-screen overflow-y-scroll"
