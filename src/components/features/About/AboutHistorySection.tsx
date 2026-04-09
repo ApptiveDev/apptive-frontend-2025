@@ -257,7 +257,7 @@ const years = historyData.map((data) => data.year);
 export const AboutHistorySection = () => {
   const [selectedYear, setSelectedYear] = useState<number>(2025);
   const currentYearData = historyData.find(
-    (data) => data.year === selectedYear
+    (data) => data.year === selectedYear,
   );
 
   return (
@@ -296,15 +296,15 @@ export const AboutHistorySection = () => {
               </p>
 
               {/* 연도 목록 - 스크롤 가능 */}
-              <div className="flex flex-col gap-5 max-h-[400px] overflow-y-scroll pl-0 pr-2 items-start mt-4 custom-scrollbar">
+              <div className="flex w-28 mx-auto ml-20 flex-col gap-5 max-h-[400px] overflow-y-scroll pl-5 pr-45 items-center mt-4 custom-scrollbar">
                 {years.map((year) => (
                   <button
                     key={year}
                     onClick={() => setSelectedYear(year)}
-                    className="flex items-center gap-3 transition-colors"
+                    className="flex w-full items-center justify-center text-center gap-3 transition-colors"
                   >
                     <span
-                      className="font-bold"
+                      className="w-full font-bold text-center"
                       style={{
                         fontFamily: "var(--font-suit), SUIT, sans-serif",
                         color: selectedYear === year ? "#71787F" : "#B4B9BE",

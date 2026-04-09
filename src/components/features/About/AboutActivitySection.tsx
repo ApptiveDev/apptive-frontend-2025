@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 interface ActivityItem {
@@ -29,14 +30,36 @@ const activities: ActivityItem[] = [
 ];
 
 export const AboutActivitySection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const target = sectionRef.current;
+    if (!target) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0, rootMargin: "-45% 0px -45% 0px" },
+    );
+
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section ref={sectionRef} className="bg-white py-16 md:py-24">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* 상단 라벨 */}
           <p
-            className="text-text-secondary text-sm uppercase"
-            style={{ fontFamily: "var(--font-suit), SUIT, sans-serif" }}
+            className="text-text-secondary text-sm uppercase font-extrabold"
+            style={{
+              fontFamily: "var(--font-suit), SUIT, sans-serif",
+              color: isInView ? "#FF7C0A" : undefined,
+              transition: "color 300ms ease",
+            }}
           >
             ACTIVITY
           </p>
@@ -47,7 +70,7 @@ export const AboutActivitySection = () => {
               <h2
                 className="text-2xl md:text-3xl lg:text-4xl font-bold !mb-1 md:!mb-2 lg:!mb-3"
                 style={{
-                  fontFamily: "var(--font-pretendard), Pretendard, sans-serif",
+                  fontFamily: "var(--font-suit), SUIT, sans-serif",
                   color: "#0F1012",
                 }}
               >
@@ -56,7 +79,7 @@ export const AboutActivitySection = () => {
               <p
                 className="text-base md:text-base"
                 style={{
-                  fontFamily: "var(--font-pretendard), Pretendard, sans-serif",
+                  fontFamily: "var(--font-suit), SUIT, sans-serif",
                   color: "#282A2E",
                 }}
               >
@@ -85,8 +108,7 @@ export const AboutActivitySection = () => {
                     <h3
                       className="text-xl md:text-2xl font-bold text-foreground mb-2"
                       style={{
-                        fontFamily:
-                          "var(--font-pretendard), Pretendard, sans-serif",
+                        fontFamily: "var(--font-suit), SUIT, sans-serif",
                       }}
                     >
                       {activity.title}
@@ -94,8 +116,7 @@ export const AboutActivitySection = () => {
                     <p
                       className="text-text-secondary text-base md:text-lg font-medium"
                       style={{
-                        fontFamily:
-                          "var(--font-pretendard), Pretendard, sans-serif",
+                        fontFamily: "var(--font-suit), SUIT, sans-serif",
                       }}
                     >
                       {activity.description}
