@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Position =
   | "기획"
@@ -41,9 +41,11 @@ const curriculumData: Record<Position, CurriculumItem[]> = {
     { title: "실전 적용 - 실습 및 과제, UI 설계 및 구현, 실전 감각 배양" },
   ],
   안드로이드: [
-    { title: "안드로이드 커리큘럼 항목 1" },
-    { title: "안드로이드 커리큘럼 항목 2" },
-    { title: "안드로이드 커리큘럼 항목 3" },
+    { title: "Kotlin 기본 문법과 앱 구조 이해" },
+    { title: "Jetpack Compose를 활용한 UI 설계 및 상태 관리" },
+    { title: "Retrofit, Coroutine을 이용한 서버 통신과 데이터 처리" },
+    { title: "MVVM 아키텍처로 효율적인 코드 구조 학습" },
+    { title: "실제 서비스 기능 구현과 앱 배포 프로세스 경험" },
   ],
   백엔드: [
     {
@@ -89,16 +91,37 @@ const positions: Position[] = [
 
 export const AboutCurriculumSection = () => {
   const [selectedPosition, setSelectedPosition] = useState<Position>("기획");
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isInView, setIsInView] = useState(false);
   const currentCurriculum = curriculumData[selectedPosition];
 
+  useEffect(() => {
+    const target = sectionRef.current;
+    if (!target) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0, rootMargin: "-45% 0px -45% 0px" },
+    );
+
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section ref={sectionRef} className="bg-white py-16 md:py-24">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* 상단 라벨 */}
           <p
-            className="text-text-secondary text-sm uppercase"
-            style={{ fontFamily: "var(--font-suit), SUIT, sans-serif" }}
+            className="text-text-secondary text-sm uppercase font-extrabold"
+            style={{
+              fontFamily: "var(--font-suit), SUIT, sans-serif",
+              color: isInView ? "#FF7C0A" : undefined,
+              transition: "color 300ms ease",
+            }}
           >
             CURRICULUM
           </p>
@@ -110,7 +133,7 @@ export const AboutCurriculumSection = () => {
               <h2
                 className="text-2xl md:text-3xl lg:text-4xl font-bold !mb-1 md:!mb-2 lg:!mb-3"
                 style={{
-                  fontFamily: "var(--font-pretendard), Pretendard, sans-serif",
+                  fontFamily: "var(--font-suit), SUIT, sans-serif",
                   color: "#0F1012",
                 }}
               >
@@ -119,7 +142,7 @@ export const AboutCurriculumSection = () => {
               <p
                 className="text-base md:text-base"
                 style={{
-                  fontFamily: "var(--font-pretendard), Pretendard, sans-serif",
+                  fontFamily: "var(--font-suit), SUIT, sans-serif",
                   color: "#282A2E",
                 }}
               >
@@ -144,8 +167,7 @@ export const AboutCurriculumSection = () => {
                           : "bg-white text-text-secondary "
                       }`}
                       style={{
-                        fontFamily:
-                          "var(--font-pretendard), Pretendard, sans-serif",
+                        fontFamily: "var(--font-suit), SUIT, sans-serif",
                       }}
                     >
                       {position}
@@ -164,8 +186,7 @@ export const AboutCurriculumSection = () => {
                           : "bg-white text-text-secondary "
                       }`}
                       style={{
-                        fontFamily:
-                          "var(--font-pretendard), Pretendard, sans-serif",
+                        fontFamily: "var(--font-suit), SUIT, sans-serif",
                       }}
                     >
                       {position}
@@ -186,10 +207,9 @@ export const AboutCurriculumSection = () => {
                 }}
               >
                 <p
-                  className="text-sm md:text-base lg:text-lg font-medium"
+                  className="text-sm md:text-base lg:text-lg font-semibold"
                   style={{
-                    fontFamily:
-                      "var(--font-pretendard), Pretendard, sans-serif",
+                    fontFamily: "var(--font-suit), SUIT, sans-serif",
                     color: "#0F1012",
                   }}
                 >
@@ -211,8 +231,7 @@ export const AboutCurriculumSection = () => {
                 <p
                   className="text-sm font-medium"
                   style={{
-                    fontFamily:
-                      "var(--font-pretendard), Pretendard, sans-serif",
+                    fontFamily: "var(--font-suit), SUIT, sans-serif",
                     color: "#0F1012",
                   }}
                 >
