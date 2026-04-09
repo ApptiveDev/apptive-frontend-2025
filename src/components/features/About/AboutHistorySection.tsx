@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface Achievement {
   title: string;
@@ -256,18 +256,39 @@ const years = historyData.map((data) => data.year);
 
 export const AboutHistorySection = () => {
   const [selectedYear, setSelectedYear] = useState<number>(2025);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isInView, setIsInView] = useState(false);
   const currentYearData = historyData.find(
     (data) => data.year === selectedYear,
   );
 
+  useEffect(() => {
+    const target = sectionRef.current;
+    if (!target) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0, rootMargin: "-45% 0px -45% 0px" },
+    );
+
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section ref={sectionRef} className="bg-white py-16 md:py-24">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* 상단 라벨 */}
           <p
             className="text-text-secondary text-sm uppercase font-extrabold"
-            style={{ fontFamily: "var(--font-suit), SUIT, sans-serif" }}
+            style={{
+              fontFamily: "var(--font-suit), SUIT, sans-serif",
+              color: isInView ? "#FF7C0A" : undefined,
+              transition: "color 300ms ease",
+            }}
           >
             HISTORY
           </p>
