@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model History_Event {
+  id       Int      @id @default(autoincrement())
+  year     Int
+  title    String
+  createAt DateTime @default(now())
+  updateAt DateTime @default(now())
+}
+
+model History_Awards {
+  id       Int      @id @default(autoincrement())
+  event_id Int
+  award    String
+  createAt DateTime @default(now())
+  updateAt DateTime @default(now())
+}
