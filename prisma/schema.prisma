@@ -13,6 +13,8 @@ model History_Event {
   title    String
   createAt DateTime @default(now())
   updateAt DateTime @default(now())
+
+  history_awards History_Awards[]
 }
 
 model History_Awards {
@@ -21,4 +23,6 @@ model History_Awards {
   award    String
   createAt DateTime @default(now())
   updateAt DateTime @default(now())
+
+  history_event History_Event @relation(fields: [event_id], references: [id])
 }
