@@ -6,7 +6,9 @@ import { AboutHistorySection } from "@/components/features/About/AboutHistorySec
 import Footer from "@/components/Footer";
 import {getAllHistories} from "@/app/history_service";
 
+// Promise 처리를 위해, About 부분을 비동기 함수화
 export default async function About() {
+    // DB에서 데이터를 가져오는 함수이며, Promise 반환을 진행하기에 await로 수정
     const historyData = await getAllHistories();
 
   return (
