@@ -4,8 +4,11 @@ import { AboutActivitySection } from "@/components/features/About/AboutActivityS
 import { AboutCurriculumSection } from "@/components/features/About/AboutCurriculumSection";
 import { AboutHistorySection } from "@/components/features/About/AboutHistorySection";
 import Footer from "@/components/Footer";
+import {getAllHistories} from "@/app/history_service";
 
-export const About = () => {
+export default async function About() {
+    const historyData = await getAllHistories();
+
   return (
     <>
       <Header variant="dark" />
@@ -13,7 +16,7 @@ export const About = () => {
         <AboutHeroSection />
         <AboutActivitySection />
         <AboutCurriculumSection />
-        <AboutHistorySection />
+        <AboutHistorySection historyData={historyData}/>
         <Footer />
       </main>
     </>
