@@ -2,7 +2,26 @@ generator client {
   provider = "prisma-client-js"
 }
 
-datasource db {
+datasource Position {
   provider = "sqlite"
   url      = env("DATABASE_URL")
+}
+
+enum Jobs {
+  PM       @map("기획")
+  DESIGN   @map("디자인")
+  FRONTEND @map("프론트엔드")
+  ANDROID  @map("안드로이드")
+  BACKEND  @map("백엔드")
+  GAME     @map("게임")
+}
+
+model Study_Curriculum {
+  id       Int      @id @default(autoincrement())
+  class    Int // 기수
+  term     Int // 학기
+  job      Jobs
+  order    Int
+  content  String
+  createAt DateTime @default(now())
 }
