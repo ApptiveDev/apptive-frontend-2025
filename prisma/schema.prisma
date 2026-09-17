@@ -2,9 +2,8 @@ generator client {
   provider = "prisma-client-js"
 }
 
-datasource Position {
+datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
 }
 
 enum Jobs {
