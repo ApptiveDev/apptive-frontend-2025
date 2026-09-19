@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
@@ -11,7 +11,9 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@prisma/adapter-better-sqlite3": "^7.10.0",
     "@prisma/client": "^7.10.0",
+    "better-sqlite3": "^13.0.3",
     "next": "15.5.5",
     "react": "19.1.0",
     "react-dom": "19.1.0"
@@ -26,6 +28,7 @@
     "@storybook/addon-vitest": "^10.0.7",
     "@storybook/nextjs-vite": "^10.0.7",
     "@tailwindcss/postcss": "^4",
+    "@types/better-sqlite3": "^9.6.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -38,6 +41,7 @@
     "lightningcss": "^1.33.0",
     "lightningcss-win32-x64-msvc": "1.29.0",
     "playwright": "^1.56.1",
+    "prisma": "^7.10.0",
     "storybook": "^10.0.7",
     "tailwindcss": "^4",
     "typescript": "^5.9.3",

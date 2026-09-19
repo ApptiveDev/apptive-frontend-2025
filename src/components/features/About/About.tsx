@@ -4,15 +4,20 @@ import { AboutActivitySection } from "@/components/features/About/AboutActivityS
 import { AboutCurriculumSection } from "@/components/features/About/AboutCurriculumSection";
 import { AboutHistorySection } from "@/components/features/About/AboutHistorySection";
 import Footer from "@/components/Footer";
+import {getAllCurriculums} from "@/app/curriculum_service";
+import {CurriculumItem, Position} from "@/app/curriculum_dto";
 
-export const About = () => {
+export default async function About() {
+
+    const curriculums: Record<Position, CurriculumItem[]> = await getAllCurriculums();
+
   return (
     <>
       <Header variant="dark" />
       <main>
         <AboutHeroSection />
         <AboutActivitySection />
-        <AboutCurriculumSection />
+        <AboutCurriculumSection curriculums={curriculums}/>
         <AboutHistorySection />
         <Footer />
       </main>

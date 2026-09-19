@@ -90,9 +90,11 @@ const positions: Position[] = [
   "게임",
 ];
 
-const curriculums: Record<Position, CurriculumItem[]> = await getAllCurriculums();
+type CurriculumProps = {
+    curriculums: Record<Position, CurriculumItem[]>
+}
 
-export const AboutCurriculumSection = () => {
+export const AboutCurriculumSection = ({ curriculums }: CurriculumProps) => {
   const [selectedPosition, setSelectedPosition] = useState<Position>("기획");
   const sectionRef = useRef<HTMLElement>(null);
   const [isInView, setIsInView] = useState(false);

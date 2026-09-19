@@ -1,6 +1,6 @@
 import {Prisma, Jobs} from "@prisma/client";
 
-type Position =
+export type Position =
     | "기획"
     | "디자인"
     | "프론트엔드"
@@ -8,7 +8,7 @@ type Position =
     | "백엔드"
     | "게임";
 
-interface CurriculumItem {
+export interface CurriculumItem {
     title: string;
 }
 
