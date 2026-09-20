@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import {getAllCurriculums} from "@/app/curriculum_service";
 
 type Position =
   | "기획"
@@ -89,11 +90,15 @@ const positions: Position[] = [
   "게임",
 ];
 
-export const AboutCurriculumSection = () => {
+type CurriculumProps = {
+    curriculums: Record<Position, CurriculumItem[]>
+}
+
+export const AboutCurriculumSection = ({ curriculums }: CurriculumProps) => {
   const [selectedPosition, setSelectedPosition] = useState<Position>("기획");
   const sectionRef = useRef<HTMLElement>(null);
   const [isInView, setIsInView] = useState(false);
-  const currentCurriculum = curriculumData[selectedPosition];
+  const currentCurriculum = curriculums[selectedPosition];
 
   useEffect(() => {
     const target = sectionRef.current;

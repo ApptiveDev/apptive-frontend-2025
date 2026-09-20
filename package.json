@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
@@ -12,7 +12,9 @@
     "postinstall": "prisma skills sync || exit 0"
   },
   "dependencies": {
-    "@prisma/client": "^5.22.0",
+    "@prisma/adapter-better-sqlite3": "^7.10.0",
+    "@prisma/client": "^7.10.0",
+    "better-sqlite3": "^13.0.3",
     "next": "15.5.5",
     "react": "19.1.0",
     "react-dom": "19.1.0"
@@ -20,28 +22,30 @@
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.2",
     "@eslint/eslintrc": "^3",
+    "@prisma/config": "^7.10.0",
     "@storybook/addon-a11y": "^10.0.7",
     "@storybook/addon-docs": "^10.0.7",
     "@storybook/addon-onboarding": "^10.0.7",
     "@storybook/addon-vitest": "^10.0.7",
     "@storybook/nextjs-vite": "^10.0.7",
     "@tailwindcss/postcss": "^4",
+    "@types/better-sqlite3": "^9.6.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitest/browser-playwright": "^4.0.9",
     "@vitest/coverage-v8": "^4.0.9",
+    "dotenv": "^17.4.2",
     "eslint": "^9",
     "eslint-config-next": "15.5.5",
     "eslint-plugin-storybook": "^10.0.7",
-    "playwright": "^1.56.1",
-    "prisma": "5.22.0",
     "lightningcss": "^1.33.0",
+    "lightningcss-win32-x64-msvc": "1.29.0",
     "playwright": "^1.56.1",
+    "prisma": "^7.10.0",
     "storybook": "^10.0.7",
     "tailwindcss": "^4",
-    "typescript": "^5",
-    "vitest": "^4.0.9",
-    "lightningcss-win32-x64-msvc": "1.29.0"
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.9"
   }
 }
