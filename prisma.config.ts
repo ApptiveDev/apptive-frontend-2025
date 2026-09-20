@@ -1,14 +1,17 @@
+import "dotenv/config";
 import { defineConfig } from "@prisma/config";
-import dotenv from 'dotenv';
-import path from 'path';
+import path from "path";
+import { pathToFileURL } from "url";
 
-// prisma/ 폴더 하위에 위치한 .env 파일의 경로를 명시적으로 지정
-dotenv.config({ path: path.resolve(process.cwd(), 'prisma/.env') });
+// dev.db 파일의 절대 경로를 올바른 file:// URL 프로토콜로 변환
+const dbUrl = pathToFileURL(path.resolve(__dirname, "prisma/dev.db")).href;
 
-// defineConfig로 DB URL 설정
 export default defineConfig({
-    schema: 'prisma/schema.prisma',
+    schema: "prisma/schema.prisma",
+    migrations: {
+        path: "prisma/migrations",
+    },
     datasource: {
-        url: process.env.DATABASE_URL
-    }
+        url: dbUrl,
+    },
 });

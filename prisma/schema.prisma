@@ -1,6 +1,5 @@
 generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["driverAdapters"]
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -46,4 +45,3 @@ model Study_Curriculum {
   content  String
   createAt DateTime @default(now())
 }
-

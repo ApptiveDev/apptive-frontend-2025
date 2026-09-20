@@ -12,7 +12,6 @@ import {getAllHistories} from "@/app/history_service";
 export default async function About() {
     // DB에서 데이터를 가져오는 함수이며, Promise 반환을 진행하기에 await로 수정
     const historyData = await getAllHistories();
-
     const curriculums: Record<Position, CurriculumItem[]> = await getAllCurriculums();
 
   return (

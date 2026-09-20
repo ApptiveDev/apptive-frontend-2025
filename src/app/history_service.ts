@@ -3,6 +3,7 @@ import { db } from '@/lib/db';
 import { toHistoryDtoList, HistoryDTO} from "@/app/history_dto";
 
 export async function getAllHistories(): Promise<HistoryDTO[]> {
+
     const events = await db.history_Event.findMany({
         include: {
             history_awards: {
