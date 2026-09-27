@@ -142,7 +142,7 @@ export const AboutCurriculumSection = ({ curriculums }: CurriculumProps) => {
                   color: "#0F1012",
                 }}
               >
-                25-2 스터디 커리큘럼
+                26-2 스터디 커리큘럼
               </h2>
               <p
                 className="text-base md:text-base"
