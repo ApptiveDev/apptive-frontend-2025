@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import {HistoryDTO} from "@/app/history_dto";
 
 interface Achievement {
   title: string;
@@ -254,7 +255,12 @@ const historyData: YearData[] = [
 
 const years = historyData.map((data) => data.year);
 
-export const AboutHistorySection = () => {
+interface Props {
+  historyData: HistoryDTO[];
+}
+
+// historyData를 가져오는 부분을 About Server Component로 연결
+export const AboutHistorySection = ({ historyData }:Props) => {
   const [selectedYear, setSelectedYear] = useState<number>(2025);
   const sectionRef = useRef<HTMLElement>(null);
   const [isInView, setIsInView] = useState(false);

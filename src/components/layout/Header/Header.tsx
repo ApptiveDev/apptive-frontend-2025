@@ -68,14 +68,15 @@ export const Header = ({ variant = "dark" }: HeaderProps) => {
           Project
         </a>
 
-        <button
+        <a
+            href="https://docs.google.com/forms/d/1tN9Ej5JmoDtXHaJ1ZOHgmgLVxjxzmb295Vnpp-1FFdc/edit"
           className={`relative group border rounded-3xl px-3 sm:px-4 md:px-4 py-2 sm:py-2 overflow-hidden ${styles.buttonText} text-xs sm:text-sm md:text-[14px] shrink-0`}
         >
           <span className="relative z-10 whitespace-nowrap">
-            <span className="hidden sm:inline">24기 지원하기</span>
+            <span className="hidden sm:inline">25기 지원하기</span>
             <span className="inline sm:hidden">지원하기</span>
           </span>
-        </button>
+        </a>
       </nav>
     </header>
   );
