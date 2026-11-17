@@ -1,24 +1,113 @@
+/* src/styles/globals.css */
 @import "tailwindcss";
 
 :root {
+  /* Base */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f1012;
+
+  /* Brand */
+  --brand-primary: #ff7900;
+  --brand-primary-hover: #ff9933;
+  --brand-dark: #282a2e;
+
+  /* Text */
+  --text-primary: #0f1012;
+  --text-secondary: #71787f;
+  --text-tertiary: #adb0b2;
+  --text-disabled: #d9dbdc;
+
+  /* Background */
+  --bg-primary: #ffffff;
+  --bg-secondary: #eaedf0;
+  --bg-dark: #282a2e;
+
+  /* Border */
+  --border-light: #eaedf0;
+  --border-default: #d9dbdc;
+  --border-dark: #adb0b2;
 }
 
+/* stylelint-disable-next-line at-rule-no-unknown */
 @theme inline {
+  /* Base */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-pretendard);
+
+  /* Brand */
+  --color-primary: var(--brand-primary);
+  --color-primary-hover: var(--brand-primary-hover);
+  --color-brand-dark: var(--brand-dark);
+
+  /* Background */
+  --color-bg-dark: var(--bg-dark);
+  --color-bg-gray: var(--bg-secondary);
+
+  /* Text */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-tertiary);
+  --color-text-gray-dark: var(--text-secondary);
+  --color-text-gray-light: var(--text-disabled);
+
+  /* Footer */
+  --color-footer: var(--bg-dark);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #ffffff;
+
+    --brand-primary: #ff9700;
+    --brand-primary-hover: #ffad5c;
+
+    --text-primary: #ffffff;
+    --text-secondary: #adb0b2;
+    --text-tertiary: #71787f;
+    --text-disabled: #585d63;
+
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #282a2e;
+    --bg-dark: #0d0d0e;
+
+    --border-light: #26282b;
+    --border-default: #202224;
+    --border-dark: #71787f;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+html,
+body {
+  overscroll-behavior: none;
+}
+
+/* 커스텀 스크롤바 스타일 */
+/* Chrome, Safari, Edge에서 스크롤바 전체 영역 선택 */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 1px;
+}
+/* 스크롤바 배경 선택 */
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--text-tertiary);
+  border-radius: 3px;
+}
+/* 스크롤바 호버 시 */
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Firefox용 스크롤바 */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-tertiary) transparent;
 }
