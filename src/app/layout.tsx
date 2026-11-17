@@ -2,6 +2,8 @@ import "@/styles/globals.css";
 import "@/styles/reset.css";
 import localFont from "next/font/local";
 
+export const dynamic = "force-dynamic";
+
 const pretendard = localFont({
   src: [
     {

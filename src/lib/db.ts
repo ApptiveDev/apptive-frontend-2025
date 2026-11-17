@@ -1,25 +1,26 @@
 import { PrismaClient } from "@prisma/client";
-import path from "path"
+import { PrismaD1 } from "@prisma/adapter-d1";
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 
-const globalForPrisma = globalThis as unknown as {
-    prisma: PrismaClient | undefined;
-};
+// D1 연결마다 PrismaClient를 하나씩만 만들어 재사용
+const clients = new WeakMap<object, PrismaClient>();
 
-// 프로젝트 루트 경로를 기준으로 prisma/dev.db의 절대 경로 생성
-const dbPath = path.resolve(process.cwd(), "prisma/dev.db");
-// Windows 경로 구분자(\)를 표준 URI 슬래시(/)로 변환
-const normalizedDbPath = dbPath.replace(/\\/g, "/");
-const dbUrl = `file:${normalizedDbPath}`;
+export function getPrisma() {
+    const { env } = getCloudflareContext();
+    const d1 = (env as unknown as { DB: ConstructorParameters<typeof PrismaD1>[0] }).DB;
+    let client = clients.get(d1);
+    if (!client) {
+        client = new PrismaClient({ adapter: new PrismaD1(d1) });
+        clients.set(d1, client);
+    }
+    return client;
+}
 
-export const db =
-    globalForPrisma.prisma ??
-    new PrismaClient({
-        datasources: {
-            db: {
-                url: dbUrl,
-            },
-        },
-        log: ["query", "error", "warn"],
-    });
-
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = db;
+// 기존 코드의 db.xxx 호출을 그대로 쓸 수 있게 해 주는 래퍼
+export const db = new Proxy({} as PrismaClient, {
+    get(_target, prop) {
+        const client = getPrisma();
+        const value = Reflect.get(client, prop);
+        return typeof value === "function" ? value.bind(client) : value;
+    },
+});
